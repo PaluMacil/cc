@@ -9,9 +9,9 @@ package main
 
 import (
 	"log"
-
 	"github.com/PaluMacil/cc/config"
 	"github.com/andlabs/ui"
+	"fmt"
 )
 
 func main() {
@@ -44,9 +44,10 @@ func main() {
 				}
 			}
 		}
-		btnSelect := ui.NewButton("Select")
 		lblSelectedCompilerLabel := ui.NewLabel("Selected Compiler")
 		lblSelectedCompilerValue := ui.NewLabel("(none)")
+		btnSelect := ui.NewButton("Select")
+
 		selectedBox.Append(cboCompilers, false)
 		selectedBox.Append(btnSelect, false)
 		selectedBox.Append(lblSelectedCompilerLabel, false)
@@ -72,6 +73,9 @@ func main() {
 		window.SetMargined(true)
 		window.SetChild(mainBox)
 		btnSelect.OnClicked(func(*ui.Button) {
+			fmt.Println(conf.Compilers[cboCompilers.Selected()].Name, "selected.")
+			fmt.Println(lblSelectedCompilerValue.Text(), "will change to new value.")
+			lblSelectedCompilerValue.SetText(conf.Compilers[cboCompilers.Selected()].Name)
 		})
 		window.OnClosing(func(*ui.Window) bool {
 			ui.Quit()

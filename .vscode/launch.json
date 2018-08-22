@@ -4,6 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
+        {
+            "name": "Launch CC-UI",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/cc-ui",
+            "env": {
+                "CCUTIL_CONFIG_PATH": "../config.json",
+                "CCUTIL_BIN_PATH": "../dist/bin"
+            },
+            "args": [""],
+            "showLog": true
+        },
         {
             "name": "Launch CC",
             "type": "go",
